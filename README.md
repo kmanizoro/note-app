@@ -24,6 +24,7 @@ A simple Note Application with Spring Boot, Spring MVC, Material Design Lite, An
 * User Profile
 * Help/Support
 * Multi-Language Support (English & Tamil) 
+* E-Mail Notification
 
 #### Modules/Features in progress
 * Tags
