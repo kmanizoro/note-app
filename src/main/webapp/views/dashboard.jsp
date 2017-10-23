@@ -229,8 +229,6 @@
 
 <%-- DashBoard Footer --%>
 <jsp:include page="dashboard_footer_scripts.jsp" />
-<script src="res/js/moment-with-locales.min.js" charset="utf-8"></script>
-<script src="res/js/material-datepicker.min.js" charset="utf-8"></script>
 <script src="res/js/dashboard.js"></script>
 
 <jsp:include page="dashboard_footer.jsp" />

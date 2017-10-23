@@ -180,6 +180,10 @@ public class AppHelper {
 		}
 		return false;
 	}
+	
+	public String getUserId(ModelMap requestMap){
+		return AppUtil.isNotNull(requestMap)? (String) requestMap.get(AppConstants.SESSION_USER_ID) : null;
+	}
 
 	@SuppressWarnings("unchecked")
 	public void convertNoteListUIToModelForSave(ModelMap requestObject,List<NoteInfo> noteInfoList){
@@ -295,7 +299,7 @@ public class AppHelper {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public void convertNoteUIToModelForDelete(ModelMap requestObject,List<Long> noteInfoList){
+	public List<Long> convertNoteUIToModelForDelete(ModelMap requestObject,List<Long> noteInfoList){
 
 		List<Object> listOfObjects 			= null;
 		try{
@@ -330,5 +334,6 @@ public class AppHelper {
 		catch(Exception ex){
 			logger.error("convertNoteUIToModelForDelete Common Exception ",ex);
 		}
+		return noteInfoList;
 	}
 }

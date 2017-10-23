@@ -113,9 +113,9 @@ try{
 	
 	'use strict';
 	profileApp.factory('psrnlService',['$http','$q',function($http,$q){
-		
-		var GET_PERSONAL_DETAILS = 'http://localhost:8020/NoteApp/api/getProfile/';
-		var PUT_PERSONAL_DETAILS = 'http://localhost:8020/NoteApp/api/saveProfile/';
+		var appUrl = window.location.origin;
+		var GET_PERSONAL_DETAILS = appUrl + '/note/api/getProfile/';
+		var PUT_PERSONAL_DETAILS = appUrl + '/note/api/saveProfile/';
 		var factory = {
 				getProfileDetails : getProfileDetails,
 				saveProfileDetails : saveProfileDetails,

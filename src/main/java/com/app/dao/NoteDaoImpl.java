@@ -371,10 +371,16 @@ public class NoteDaoImpl implements INoteDao{
 	
 	@SuppressWarnings("unchecked")
 	@ReadOnlyTrans
-	public List<NoteInfo> getListOfNoteInfos() {
-		List<NoteInfo> noteList = 
-				getSession().createCriteria(NoteInfo.class).
-				setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+	public List<NoteInfo> getListOfNoteInfos(Long userId) {
+		List<NoteInfo> noteList = null;
+		try{
+			String query = "from NoteInfo where userDetail.userId = :userId";
+			Query userNotesQuery = getSession().createQuery(query);
+			userNotesQuery.setParameter("userId", userId);
+			noteList = userNotesQuery.list();
+		}catch(Exception ex){
+			logger.error("Error in getListOfNoteInfos "+ex);
+		}	
 		return noteList;
 	}
 	

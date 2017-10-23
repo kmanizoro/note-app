@@ -1,57 +1,47 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html>
-<head>
-<title><c:choose>
-		<c:when test="${not empty Exp_Msg}">
-			<c:out value="${Exp_Msg}" />
-		</c:when>
-		<c:otherwise>
-			Oops Error Page
-		</c:otherwise>
-	</c:choose></title>
-<link rel="stylesheet" href="res/css/material.min.css">
-<link rel="stylesheet" href="res/css/material.icon.css">
-<link rel="stylesheet" href="res/css/style.css">
-<!-- Add to homescreen for Chrome on Android -->
-<meta name="mobile-web-app-capable" content="yes">
-<link rel="icon" sizes="128x128" href="res/img/note_pin.ico">
-
-<!-- Add to homescreen for Safari on iOS -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Material Design Lite">
-<link rel="apple-touch-icon-precomposed" href="res/img/osx_pin.icns">
-
-<!-- Tile icon for Win8 (144x144 + tile color) -->
-<meta name="msapplication-TileImage" content="res/img/128_pin.png">
-<meta name="msapplication-TileColor" content="#3372DF">
-
-<link rel="shortcut icon" href="res/img/128_pin.png">
-<script type="text/javascript" src="res/js/material.min.js"></script>
+<!DOCTYPE html>
+<meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+<title><c:choose><c:when test="${not empty Exp_Msg}">${Exp_Msg}</c:when><c:otherwise>Oops Error Page</c:otherwise></c:choose></title>
+<meta name=mobile-web-app-capable content=yes>
+<link rel=icon sizes=128x128 href=/note/res/img/note_pin.ico>
+<meta name=apple-mobile-web-app-capable content=yes>
+<meta name=apple-mobile-web-app-status-bar-style content=black>
+<meta name=apple-mobile-web-app-title content="Page Not Found">
+<link rel=apple-touch-icon-precomposed href=/note/res/img/osx_pin.icns>
+<meta name=msapplication-TileImage content=/note/res/img/128_pin.png>
+<meta name=msapplication-TileColor content=#3372DF>
+<link rel="shortcut icon" href=/note/res/img/128_pin.png>
+<style>body{font-family:Courgette,cursive}body{background:#f3f3e1}.wrap{margin:0 auto;width:1000px}.logo{margin-top:50px}.logo h1{font-size:75px;color:#8f8f91;text-align:center;margin-bottom:1px;text-shadow:1px 1px 6px #fff}.logo p{color:#e492a2;font-size:20px;margin-top:1px;text-align:center}.logo p span{color:#90ee90}.sub a{color:#fff;background:#8f8e8c;text-decoration:none;padding:9px 20px;font-size:13px;font-family:arial,serif;font-weight:700;-webkit-border-radius:3em;-moz-border-radius:.1em;-border-radius:.1em}.footer{color:#8f8e8c;position:absolute;right:10px;bottom:10px}.footer a{color:#e492a2}</style>
 </head>
 <body>
-	<div class="center_content">
-		<br>
-		<c:choose>
-			<c:when test="${not empty Exp_Msg}">
-				<c:out value="${Exp_Msg}" />
-			</c:when>
-			<c:otherwise>
-				Oops Error Page
-		</c:otherwise>
-		</c:choose>
-		<br />
-		<c:choose>
-			<c:when test="${not empty Exp_Des}">
-				<span> &#x2639;<c:out value="${Exp_Des}" />
-					&nbsp;Please Goto <a class="mdl-js-button" href="/NoteApp">Home</a>&#x263A
-				</span>
-			</c:when>
-			<c:otherwise>
-			Oops Error Page!!! Please goto #<a class="mdl-js-button"
-					href="/NoteApp">Home Page</a>
-			</c:otherwise>
-		</c:choose>	
-		</div>
+<div class=wrap>
+<div class=center_content>
+</div>
+<c:choose>
+<c:when test="${not empty Exp_Des}">
+<div class=logo>
+<c:choose>
+<c:when test="${not empty Exp_Msg}">
+<h1>${Exp_Msg}</h1>
+</c:when>
+<c:otherwise>
+<h1>Oops Error Page</h1>
+</c:otherwise>
+</c:choose>
+<p>We can't find the page you're looking for.</p>
+<p>${Exp_Des }</p>
+<div class=sub><p><a href=/>Home</a></p></div>
+</div>
+</c:when>
+<c:otherwise>
+<div class=logo>
+<h1>Error Page Not Found</h1>
+<p>We can't find the page you're looking for.</p>
+<div class=sub><p><a href=/>Home</a></p></div>
+</div>
+</c:otherwise>
+</c:choose>
+</div>
+<div class=footer>© 2017 KManiZoro . All Rights Reserved</div>
 </body>
 </html>

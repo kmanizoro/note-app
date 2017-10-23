@@ -151,8 +151,8 @@ public class NoteServiceImpl implements INoteService{
 		return null;
 	}
 	
-	public List<NoteInfo> getListOfNoteInfos(){
-		return noteDao.getListOfNoteInfos();
+	public List<NoteInfo> getListOfNoteInfos(Long userId){
+		return noteDao.getListOfNoteInfos(userId);
 	}
 	
 	public boolean checkValidUserSession(String sessionId,Long userId){

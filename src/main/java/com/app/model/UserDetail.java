@@ -292,15 +292,16 @@ public class UserDetail implements Serializable {
 				+ userName + ", userPass=" + userPass + ", userRole=" + userRole + "]";
 	}
 	
-	public int hashCode(){
-		final int code = 5;
-		int res = 1;
-		res = code * res + (userId==null?0:userId.hashCode());
-		res = code * res + (userName==null?0:userName.hashCode());
-		res = code * res + (userMail==null?0:userMail.hashCode());
-		return res;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
+		result = prime * result + ((userMail == null) ? 0 : userMail.hashCode());
+		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
+		return result;
 	}
-	
+
 	public boolean equals(Object obj){
 		if(this == obj)
 			return true;
@@ -327,7 +328,9 @@ public class UserDetail implements Serializable {
 		} else if(userMail!=detail.userMail)
 			return false;
 		
-		return false;
+		return true;
 	}
+	
+	
 
 }

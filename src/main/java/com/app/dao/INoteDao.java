@@ -46,7 +46,7 @@ public interface INoteDao {
 	
 	public LoginDetail getLoginDetail(Long loginId);
 	
-	public List<NoteInfo> getListOfNoteInfos();
+	public List<NoteInfo> getListOfNoteInfos(Long userId);
 	
 	public boolean checkValidUserSession(String sessionId,Long userId);
 }

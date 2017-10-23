@@ -297,10 +297,10 @@ try{
 		function getDashDetails(){
 			
 			var reqParams = {
-				"ssnUserId" : document.getElementById('ssnUserId').value,
-				"ssnLoginSsnId" : document.getElementById('ssnLoginSsnId').value,
-				"ssnLoginId" : document.getElementById('ssnLoginId').value	
-			};
+					"ssnUserId" : document.getElementById('ssnUserId').value,
+					"ssnLoginSsnId" : document.getElementById('ssnLoginSsnId').value,
+					"ssnLoginId" : document.getElementById('ssnLoginId').value	
+				};
 			
 			dashboardService.getDashboardDetails(reqParams)
 	            .then(
@@ -313,7 +313,7 @@ try{
 	            	}
 	            },
 	            function(errResponse){
-	                console.error('Error in saveProfileDetails Controller while fetching Users');
+	                console.error('Error in getDashboardDetails Controller while fetching Users'+errResponse);
 	            }
 	        );
 	    }
@@ -321,10 +321,10 @@ try{
 	}]);
 	
 	dashApp.factory('dashboardService',['$http','$q',function($http,$q){
-		
-		var GET_DASHBOARD_DETAILS = 'http://localhost:8020/NoteApp/api/getDashboard/';
-		var SAVE_DASHBOARD_DETAILS = 'http://localhost:8020/NoteApp/api/saveDashboard/';
-		var DEL_DASHBOARD_DETAILS = 'http://localhost:8020/NoteApp/api/deleteDashboard/';
+		var appUrl = window.location.origin;
+		var GET_DASHBOARD_DETAILS = appUrl + '/note/api/getDashboard/';
+		var SAVE_DASHBOARD_DETAILS = appUrl + '/note/api/saveDashboard/';
+		var DEL_DASHBOARD_DETAILS =  appUrl + '/note/api/deleteDashboard/';
 		
 		var factory = {
 				getDashboardDetails : getDashboardDetails,
@@ -336,6 +336,7 @@ try{
 		// getDashboardDetails
 		function getDashboardDetails(req){
 			var def = $q.defer();
+			console.log("GET_DASHBOARD_DETAILS"+GET_DASHBOARD_DETAILS);
 			$http.post(GET_DASHBOARD_DETAILS,req).then(
 				function(response){
 					def.resolve(response);

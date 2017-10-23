@@ -71,7 +71,7 @@ public class AppUserController {
 		if(logger.isDebugEnabled()){
 			logger.info("Welocme Page");
 		}
-		return new ModelAndView(AppConstants.PAGE_DASHBOARD);
+		return AppUtil.rediredtedTo(AppConstants.URL_DASHBOARD);
 	}
 	
 	@RequestMapping(value=AppConstants.URL_LOGIN,method={RequestMethod.GET,RequestMethod.POST})
@@ -235,9 +235,10 @@ public class AppUserController {
 		String responseString = "MSG_ERR";
 		AppUtil.setLocaleContextHolder(locale);
 		try{
+			List<Long> noteInfoList = null;
 			if(AppUtil.isNotNull(reqObj) && appHelper.validateApiRequest(reqObj)){
-				List<Long> noteInfoList = new ArrayList<Long>();
-				appHelper.convertNoteUIToModelForDelete(reqObj, noteInfoList);
+				noteInfoList = new ArrayList<Long>();
+				noteInfoList = appHelper.convertNoteUIToModelForDelete(reqObj, noteInfoList);
 				responseString = noteService.deleteListOfNoteInfos(noteInfoList);
 			}
 			if(AppConstants.TRANSACTION_SUCCESS.equals(responseString)){
@@ -255,9 +256,10 @@ public class AppUserController {
 		String responseString = "";
 		AppUtil.setLocaleContextHolder(locale);
 		try{
-			List<NoteInfo> noteList = noteService.getListOfNoteInfos();
 			List<NoteDetailsVO> listOfNotes = null;
-			if(AppUtil.isNotNull(noteList) && appHelper.validateApiRequest(reqObj)){
+			if(appHelper.validateApiRequest(reqObj) && AppUtil.isNotNull(appHelper.getUserId(reqObj))){
+				Long userId = new Long(appHelper.getUserId(reqObj));
+				List<NoteInfo> noteList = noteService.getListOfNoteInfos(userId);
 				listOfNotes = new ArrayList<NoteDetailsVO>();
 				appHelper.convertNoteListModelToUI(noteList, listOfNotes);
 				responseString = JSONUtil.getJSONValueAsString(listOfNotes);

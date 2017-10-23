@@ -42,8 +42,8 @@ try{
 	
 	'use strict';
 	supportApp.factory('supportService',['$http','$q',function($http,$q){
-		
-		var SEND_SUPPORT_DETAILS = 'http://localhost:8020/NoteApp/api/sendSupport/';
+		var appUrl = window.location.origin;
+		var SEND_SUPPORT_DETAILS = appUrl + '/note/api/sendSupport/';
 		var factory = {
 				sendSupportDetails : sendSupportDetails
 		};
