@@ -29,14 +29,14 @@
 		<dependency>	
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
+            <!--<exclusions>
             	<exclusion>
             		<dependency>
 			            <groupId>org.springframework.boot</groupId>
 			            <artifactId>spring-boot-starter-tomcat</artifactId>
 			        </dependency>
             	</exclusion>
-            </exclusions>
+            </exclusions>-->
         </dependency>
         <dependency>
 		    <groupId>org.springframework.boot</groupId>
