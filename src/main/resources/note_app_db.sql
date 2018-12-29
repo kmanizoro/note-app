@@ -127,7 +127,7 @@ CREATE TABLE `token_details` (
 CREATE TABLE `user_details` (
   `user_id` int(11) NOT NULL,
   `user_name` varchar(15) NOT NULL,
-  `user_pass` varchar(15) NOT NULL,
+  `user_pass` varchar(100) NOT NULL,
   `user_firstname` varchar(30) DEFAULT NULL,
   `user_lastname` varchar(30) DEFAULT NULL,
   `user_displayname` varchar(30) DEFAULT NULL,

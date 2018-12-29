@@ -1,6 +1,6 @@
 # Note Application with Spring Angular Js Material Design Lite 
 
-A simple Note Application with Spring Boot, Spring MVC, Material Design Lite, Angular Js and Multi-Language support.
+A Note Application with Spring Boot, Spring MVC, Material Design Lite, Angular Js and Multi-Language support.
 
 ### Modules/Frameworks used in application
 
@@ -8,7 +8,7 @@ A simple Note Application with Spring Boot, Spring MVC, Material Design Lite, An
 * [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html)
 * [Spring Security](https://projects.spring.io/spring-security/)
 * [Java Mail](http://www.oracle.com/technetwork/java/javamail/index.html)
-* [Hibernate](http://hibernate.org/)
+* [Hibernate/JPA](http://hibernate.org/)
 * [Material Design Lite](https://getmdl.io/)
 * [Angular Js](https://docs.angularjs.org/)
 * [MySQL](https://www.mysql.com/)
